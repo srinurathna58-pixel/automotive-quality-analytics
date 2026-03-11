@@ -2,76 +2,74 @@
 End-to-end automotive manufacturing analytics project using SQL, data modeling, and Power BI
 
 **Automotive Manufacturing Analytics Dashboard**
-Project Overview
+**Project Overview**
 
 This project analyzes automotive production, quality defects, and warranty claims using SQL data modeling and Power BI dashboards.
 
 The goal is to identify:
 
-Production performance issues
+1. Production performance issues
+2. Manufacturing defect trends
+3. Supplier quality risks
+4. Warranty cost drivers
 
-Manufacturing defect trends
-
-Supplier quality risks
-
-Warranty cost drivers
-
-Tech Stack
+**Tech Stack**
 
 Tools used:
 
-SQL (PostgreSQL)
+1. SQL (PostgreSQL)
 
-Data Warehouse Modeling
+2. Data Warehouse Modeling
 
-Microsoft Power BI
+3. Microsoft Power BI
 
-GitHub
+4. GitHub
 
-Data Model
+**Data Model**
 
 A Star Schema data model was designed with:
 
-Fact Tables:
+**Fact Tables:**
 
-production_fact
+1. production_fact
 
-quality_fact
+2. quality_fact
 
-warranty_fact
+3. warranty_fact
 
-Dimension Tables:
+**Dimension Tables:**
 
-vehicle_dimension
+1.vehicle_dimension
 
-part_dimension
+2. part_dimension
 
-defect_dimension
+3. defect_dimension
 
-inspection_dimension
+4. inspection_dimension
 
-plant_dimension
+5. plant_dimension
 
-date_dimension
+6. date_dimension
 
-region_dimension
+7. region_dimension
 
-Analytics Views
+**Analytics Views**
 
 SQL views were created to support dashboard analytics:
 
-production_summary
+1. production_summary
 
-supplier_defects
+2. supplier_defects
 
-defect_rate
+3. defect_rate
 
-warranty_cost_analysis
+4. warranty_cost_analysis
 
-defect_warranty_impact
+5. defect_warranty_impact
 
-Dashboard Pages
-1 Production Performance
+**Dashboard Pages**
+
+1. Production Performance
 
 Planned vs actual production
 
@@ -79,7 +77,7 @@ Scrap analysis
 
 Downtime monitoring
 
-2 Quality Analytics
+2. Quality Analytics
 
 Defect type analysis
 
@@ -87,7 +85,7 @@ Supplier quality comparison
 
 Defect rate trends
 
-3 Warranty Analytics
+3. Warranty Analytics
 
 Warranty claims by region
 
@@ -97,10 +95,10 @@ Warranty cost heatmap
 
 Key Insights
 
-Fender Cladding has the highest defect count across suppliers
+1. Fender Cladding has the highest defect count across suppliers
 
-East region shows the highest warranty repair cost
+2. East region shows the highest warranty repair cost
 
-Offroad-A platform has the largest warranty expense
+3. Offroad-A platform has the largest warranty expense
 
-Supplier Gamma shows higher defect contribution for multiple parts
+4. Supplier Gamma shows higher defect contribution for multiple parts
