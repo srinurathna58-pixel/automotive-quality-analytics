@@ -1,83 +1,392 @@
-# automotive-quality-analytics
-End-to-end automotive manufacturing analytics project using SQL, data modeling, and Power BI
-
 **Automotive Manufacturing Analytics Dashboard**
 **Project Overview**
 
-This project analyzes automotive production, quality defects, and warranty claims using SQL data modeling and Power BI dashboards.
+This project analyzes automotive manufacturing operations using production, quality, and warranty data to identify inefficiencies, defect patterns, and cost drivers.
 
-The goal is to identify:
+The objective of this analysis is to provide insights into:
 
-1. Production performance issues
-2. Manufacturing defect trends
-3. Supplier quality risks
-4. Warranty cost drivers
+Production performance
 
-**Tech Stack**
+Manufacturing quality issues
 
-Tools used:
+Supplier defect contribution
 
-1. SQL (PostgreSQL)
-2. Data Warehouse Modeling
-3. Microsoft Power BI
-4. GitHub
+Warranty claims and repair costs
+
+The analysis is implemented using SQL-based data modeling and interactive dashboards in Microsoft Power BI.
+
+**Business Problem**
+
+Automotive manufacturers must continuously monitor operational performance across production plants and suppliers to maintain efficiency, reduce defects, and minimize warranty costs.
+
+Key challenges addressed in this project include:
+
+Identifying plants with high downtime or scrap generation
+
+Detecting parts and suppliers contributing to defects
+
+Understanding defect severity and rework costs
+
+Analyzing warranty claim trends and repair costs across regions
+
+Monitoring vehicle models with higher failure rates
+
+The dashboard enables data-driven decision making for manufacturing quality and reliability improvement.
+
+**Dataset Description**
+
+The project uses simulated automotive manufacturing data consisting of three operational domains.
+
+**Production Data**
+
+Contains manufacturing output information.
+
+Columns include:
+
+production_date
+
+vehicle_model
+
+plant
+
+planned_production
+
+actual_production
+
+scrap_units
+
+rework_units
+
+downtime_minutes
+
+**Quality Inspection Data**
+
+Contains defect and inspection results.
+
+Columns include:
+
+inspection_date
+
+vehicle_model
+
+plant
+
+supplier
+
+part_name
+
+defect_type
+
+inspection_method
+
+failure_mode
+
+defect_count
+
+severity_score
+
+**Warranty Claims Data**
+
+Contains field failure and repair information.
+
+Columns include:
+
+claim_date
+
+vehicle_model
+
+plant
+
+supplier
+
+part_name
+
+failure_mode
+
+claim_count
+
+repair_cost
+
+vehicle_age_months
+
+region
 
 **Data Model**
 
-A Star Schema data model was designed with:
+A star schema data warehouse model was implemented to support analytical queries and dashboard reporting.
 
-**Fact Tables:**
+**Fact Tables**
 
-1. production_fact
-2. quality_fact
-3. warranty_fact
+production_fact
+quality_fact
+warranty_fact
 
-**Dimension Tables:**
+These tables store quantitative metrics used for analysis.
 
-1.vehicle_dimension
-2. part_dimension
-3. defect_dimension
-4. inspection_dimension
-5. plant_dimension
-6. date_dimension
-7. region_dimension
+**Dimension Tables**
 
-**Analytics Views**
+date_dimension
+vehicle_dimension
+plant_dimension
+dim_part
+dim_defect
+dim_inspection
+dim_region
 
-SQL views were created to support dashboard analytics:
+Dimension tables provide descriptive attributes used for filtering and grouping.
 
-1. production_summary
-2. supplier_defects
-3. defect_rate
-4. warranty_cost_analysis
-5. defect_warranty_impact
+**Star Schema Architecture**
 
-**Dashboard Pages**
+Fact tables are connected to multiple dimension tables to enable efficient analytical queries.
 
-1. Production Performance
+Example relationships:
 
-    -Planned vs actual production
-    -Scrap analysis
-    -Downtime monitoring
+production_fact
+→ vehicle_dimension
+→ plant_dimension
+→ date_dimension
 
-3. Quality Analytics
+quality_fact
+→ dim_part
+→ dim_defect
+→ dim_inspection
+→ plant_dimension
 
-    -Defect type analysis
-    -Supplier quality comparison
-    -Defect rate trends
+warranty_fact
+→ dim_region
+→ dim_part
+→ dim_defect
 
-3. Warranty Analytics
+This structure enables flexible slicing of data across vehicle models, suppliers, plants, and regions.
 
-    -Warranty claims by region
-    -Repair cost by vehicle model
-    -Warranty cost heatmap
+**Data Processing Workflow**
 
-Key Insights
+Data preparation and transformation were performed using SQL.
 
-1. Fender Cladding has the highest defect count across suppliers
+Steps include:
 
-2. East region shows the highest warranty repair cost
+Raw datasets loaded into PostgreSQL tables
 
-3. Offroad-A platform has the largest warranty expense
+Dimension tables created to normalize descriptive attributes
 
-4. Supplier Gamma shows higher defect contribution for multiple parts
+Fact tables populated with aggregated metrics
+
+SQL views created for analytical queries
+
+Views imported into Power BI for dashboard development
+
+**Analytical Views**
+
+To simplify reporting, analytical views were created.
+
+**Quality Analysis View**
+
+Combines defect metrics with production context.
+
+Includes:
+
+total_defects
+
+defect_rate
+
+severity_score
+
+rework_cost
+
+supplier
+
+part_name
+
+vehicle_model
+
+plant
+
+**Warranty Analysis View**
+
+Aggregates warranty claims and repair cost data.
+
+Includes:
+
+total_claims
+
+warranty_rate
+
+total_repair_cost
+
+vehicle_age_months
+
+region
+
+vehicle_model
+
+**Production Summary View**
+
+Provides aggregated production metrics.
+
+Includes:
+
+planned_production
+
+actual_production
+
+scrap_units
+
+rework_units
+
+downtime_minutes
+
+production_rate
+
+**Dashboard Features**
+
+Interactive dashboards were developed in Power BI to analyze operational performance.
+
+Production Performance Dashboard
+
+**Key metrics:**
+
+Total Production
+
+Scrap Units
+
+Rework Units
+
+Downtime
+
+Production Rate
+
+Visualizations include:
+
+Planned vs Actual Production Trend
+
+Scrap Units by Plant
+
+Downtime by Plant
+
+Production by Vehicle Model
+
+**Manufacturing Quality Analysis**
+
+Key metrics:
+
+Total Defects
+
+Defect Rate
+
+Rework Cost
+
+Severity Score
+
+Visualizations include:
+
+Top Defect Categories
+
+Defects by Part and Supplier
+
+Quarterly Defect Trends
+
+Severity Contribution by Component
+
+**Warranty Analysis Dashboard**
+
+Key metrics:
+
+Total Claims
+
+Warranty Rate
+
+Total Repair Cost
+
+Visualizations include:
+
+Claims by Region
+
+Repair Cost by Vehicle Model
+
+Monthly Warranty Trend
+
+Warranty Cost Distribution
+
+**Key Insights**
+
+Production Analysis
+
+Plant-C recorded the highest downtime, indicating potential production efficiency issues.
+
+Scrap generation is highest in Plant-A, suggesting process quality improvements are needed.
+
+Quality Analysis
+
+Fender Cladding and Rear Bumper components show the highest defect counts.
+
+Supplier-Gamma and Supplier-Beta contribute significantly to defect occurrences.
+
+Warranty Analysis
+
+Offroad-A vehicle platform generates the highest repair cost.
+
+Northern region shows the highest number of warranty claims.
+
+These insights can help manufacturers prioritize process improvements and supplier quality management.
+
+**Tools and Technologies**
+
+Database
+PostgreSQL
+
+Query Language
+SQL
+
+Data Modeling
+Star Schema Data Warehouse Design
+
+Visualization
+Power BI
+
+Data Analysis
+DAX Measures and SQL Aggregations
+
+**Repository Structure**
+
+automotive-manufacturing-analytics
+
+datasets
+raw_data_files
+
+sql
+schema.sql
+dimension_tables.sql
+fact_tables.sql
+analytics_views.sql
+
+powerbi
+automotive_dashboard.pbix
+
+report
+Automotive_Analytics_Project.pdf
+
+README.md
+
+**Skills Demonstrated**
+
+SQL Data Modeling
+Star Schema Design
+Fact and Dimension Tables
+Data Cleaning and Transformation
+Analytical SQL Queries
+Power BI Dashboard Development
+KPI Development
+Manufacturing Analytics
+
+**Future Improvements**
+
+Potential extensions for this project include:
+
+Predictive maintenance analysis
+
+Warranty failure prediction using machine learning
+
+Supplier defect risk scoring
+
+Real-time production monitoring
+
