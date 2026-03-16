@@ -36,21 +36,19 @@ The dashboard enables data-driven decision making for manufacturing quality and 
 
 **Project Architecture**
 
-The project follows a structured analytics pipeline from raw data ingestion to interactive dashboard visualization.
+The project follows a data analytics pipeline from raw manufacturing data to interactive dashboards.
 
-Data Flow:
+Steps involved:
 
-Raw Manufacturing Data  
-        ↓  
-PostgreSQL Database Tables  
-        ↓  
-Fact & Dimension Tables (Star Schema)  
-        ↓  
-SQL Analytical Views  
-        ↓  
-Power BI Data Model  
-        ↓  
-Interactive Dashboards
+1. Raw datasets containing production, quality, and warranty data are loaded into PostgreSQL.
+2. Dimension tables are created to normalize descriptive attributes.
+3. Fact tables are designed to store measurable metrics.
+4. SQL analytical views are created for reporting calculations.
+5. The views are imported into Power BI.
+6. Interactive dashboards provide insights into production performance, manufacturing quality, and warranty claims.
+
+![Project Architecture](Images/Project_Architecture.png)
+
 
 **Dataset Description**
 
