@@ -34,6 +34,24 @@ Key challenges addressed in this project include:
 
 The dashboard enables data-driven decision making for manufacturing quality and reliability improvement.
 
+**Project Architecture**
+
+The project follows a structured analytics pipeline from raw data ingestion to interactive dashboard visualization.
+
+Data Flow:
+
+Raw Manufacturing Data  
+        ↓  
+PostgreSQL Database Tables  
+        ↓  
+Fact & Dimension Tables (Star Schema)  
+        ↓  
+SQL Analytical Views  
+        ↓  
+Power BI Data Model  
+        ↓  
+Interactive Dashboards
+
 **Dataset Description**
 
 The project uses simulated automotive manufacturing data consisting of three operational domains.
