@@ -1,17 +1,18 @@
 **Automotive Manufacturing Analytics Dashboard**
+
 **Project Overview**
 
 This project analyzes automotive manufacturing operations using production, quality, and warranty data to identify inefficiencies, defect patterns, and cost drivers.
 
 The objective of this analysis is to provide insights into:
 
-Production performance
+1. Production performance
 
-Manufacturing quality issues
+2. Manufacturing quality issues
 
-Supplier defect contribution
+3. Supplier defect contribution
 
-Warranty claims and repair costs
+4. Warranty claims and repair costs
 
 The analysis is implemented using SQL-based data modeling and interactive dashboards in Microsoft Power BI.
 
@@ -21,15 +22,15 @@ Automotive manufacturers must continuously monitor operational performance acros
 
 Key challenges addressed in this project include:
 
-Identifying plants with high downtime or scrap generation
+1. Identifying plants with high downtime or scrap generation
 
-Detecting parts and suppliers contributing to defects
+2. Detecting parts and suppliers contributing to defects
 
-Understanding defect severity and rework costs
+3. Understanding defect severity and rework costs
 
-Analyzing warranty claim trends and repair costs across regions
+4. Analyzing warranty claim trends and repair costs across regions
 
-Monitoring vehicle models with higher failure rates
+5. Monitoring vehicle models with higher failure rates
 
 The dashboard enables data-driven decision making for manufacturing quality and reliability improvement.
 
@@ -43,21 +44,21 @@ Contains manufacturing output information.
 
 Columns include:
 
-production_date
+1. production_date
 
-vehicle_model
+2. vehicle_model
 
-plant
+3. plant
 
-planned_production
+4. planned_production
 
-actual_production
+5. actual_production
 
-scrap_units
+6. scrap_units
 
-rework_units
+7. rework_units
 
-downtime_minutes
+8. downtime_minutes
 
 **Quality Inspection Data**
 
@@ -65,25 +66,25 @@ Contains defect and inspection results.
 
 Columns include:
 
-inspection_date
+1. inspection_date
 
-vehicle_model
+2. vehicle_model
 
-plant
+3. plant
 
-supplier
+4. supplier
 
-part_name
+5. part_name
 
-defect_type
+6. defect_type
 
-inspection_method
+7. inspection_method
 
-failure_mode
+8. failure_mode
 
-defect_count
+9. defect_count
 
-severity_score
+10. severity_score
 
 **Warranty Claims Data**
 
@@ -91,25 +92,25 @@ Contains field failure and repair information.
 
 Columns include:
 
-claim_date
+1. claim_date
 
-vehicle_model
+2. vehicle_model
 
-plant
+3. plant
 
-supplier
+4. supplier
 
-part_name
+5. part_name
 
-failure_mode
+6. failure_mode
 
-claim_count
+7. claim_count
 
-repair_cost
+8. repair_cost
 
-vehicle_age_months
+9. vehicle_age_months
 
-region
+10. region
 
 **Data Model**
 
@@ -142,20 +143,20 @@ Fact tables are connected to multiple dimension tables to enable efficient analy
 Example relationships:
 
 production_fact
-→ vehicle_dimension
-→ plant_dimension
-→ date_dimension
+- vehicle_dimension
+- plant_dimension
+- date_dimension
 
 quality_fact
-→ dim_part
-→ dim_defect
-→ dim_inspection
-→ plant_dimension
+- dim_part
+- dim_defect
+- dim_inspection
+- plant_dimension
 
 warranty_fact
-→ dim_region
-→ dim_part
-→ dim_defect
+- dim_region
+- dim_part
+- dim_defect
 
 This structure enables flexible slicing of data across vehicle models, suppliers, plants, and regions.
 
@@ -165,15 +166,15 @@ Data preparation and transformation were performed using SQL.
 
 Steps include:
 
-Raw datasets loaded into PostgreSQL tables
+1. Raw datasets loaded into PostgreSQL tables
 
-Dimension tables created to normalize descriptive attributes
+2. Dimension tables created to normalize descriptive attributes
 
-Fact tables populated with aggregated metrics
+3. Fact tables populated with aggregated metrics
 
-SQL views created for analytical queries
+4. SQL views created for analytical queries
 
-Views imported into Power BI for dashboard development
+5. Views imported into Power BI for dashboard development
 
 **Analytical Views**
 
@@ -185,21 +186,21 @@ Combines defect metrics with production context.
 
 Includes:
 
-total_defects
+1. total_defects
 
-defect_rate
+2. defect_rate
 
-severity_score
+3. severity_score
 
-rework_cost
+4. rework_cost
 
-supplier
+5. supplier
 
-part_name
+6. part_name
 
-vehicle_model
+7. vehicle_model
 
-plant
+8. plant
 
 **Warranty Analysis View**
 
@@ -207,17 +208,17 @@ Aggregates warranty claims and repair cost data.
 
 Includes:
 
-total_claims
+1. total_claims
 
-warranty_rate
+2. warranty_rate
 
-total_repair_cost
+3. total_repair_cost
 
-vehicle_age_months
+4. vehicle_age_months
 
-region
+5. region
 
-vehicle_model
+6. vehicle_model
 
 **Production Summary View**
 
@@ -225,17 +226,17 @@ Provides aggregated production metrics.
 
 Includes:
 
-planned_production
+1. planned_production
 
-actual_production
+2. actual_production
 
-scrap_units
+3. scrap_units
 
-rework_units
+4. rework_units
 
-downtime_minutes
+5. downtime_minutes
 
-production_rate
+6. production_rate
 
 **Dashboard Features**
 
@@ -243,89 +244,95 @@ Interactive dashboards were developed in Power BI to analyze operational perform
 
 Production Performance Dashboard
 
+![Production_Dashboard](Images/Production_Dashboard.png)
+
 **Key metrics:**
 
-Total Production
+• Total Production
 
-Scrap Units
+• Scrap Units
 
-Rework Units
+• Rework Units
 
-Downtime
+• Downtime
 
-Production Rate
+• Production Rate
 
 Visualizations include:
 
-Planned vs Actual Production Trend
+• Planned vs Actual Production Trend
 
-Scrap Units by Plant
+• Scrap Units by Plant
 
-Downtime by Plant
+• Downtime by Plant
 
-Production by Vehicle Model
+• Production by Vehicle Model
 
 **Manufacturing Quality Analysis**
 
+![Quality_Dashboard](Images/Quality_Dashboard.png)
+
 Key metrics:
 
-Total Defects
+• Total Defects
 
-Defect Rate
+• Defect Rate
 
-Rework Cost
+• Rework Cost
 
-Severity Score
+• Severity Score
 
 Visualizations include:
 
-Top Defect Categories
+• Top Defect Categories
 
-Defects by Part and Supplier
+• Defects by Part and Supplier
 
-Quarterly Defect Trends
+• Quarterly Defect Trends
 
-Severity Contribution by Component
+• Severity Contribution by Component
 
 **Warranty Analysis Dashboard**
 
+![Warranty_Dashboard](Images/Warranty_Dashboard.png)
+
 Key metrics:
 
-Total Claims
+• Total Claims
 
-Warranty Rate
+• Warranty Rate
 
-Total Repair Cost
+• Total Repair Cost
 
 Visualizations include:
 
-Claims by Region
+• Claims by Region
 
-Repair Cost by Vehicle Model
+• Repair Cost by Vehicle Model
 
-Monthly Warranty Trend
+• Monthly Warranty Trend
 
-Warranty Cost Distribution
+• Warranty Cost Distribution
 
 **Key Insights**
 
 Production Analysis
 
-Plant-C recorded the highest downtime, indicating potential production efficiency issues.
+• Plant-C recorded the highest downtime, indicating potential production efficiency issues.
 
-Scrap generation is highest in Plant-A, suggesting process quality improvements are needed.
+• Scrap generation is highest in Plant-A, suggesting process quality improvements are needed.
 
 Quality Analysis
 
-Fender Cladding and Rear Bumper components show the highest defect counts.
+• Fender Cladding and Rear Bumper components show the highest defect counts.
 
-Supplier-Gamma and Supplier-Beta contribute significantly to defect occurrences.
+• Supplier-Gamma and Supplier-Beta contribute significantly to defect occurrences.
 
 Warranty Analysis
 
-Offroad-A vehicle platform generates the highest repair cost.
+• Offroad-A vehicle platform generates the highest repair cost.
 
-Northern region shows the highest number of warranty claims.
+• Northern region shows the highest number of warranty claims.
 
 These insights can help manufacturers prioritize process improvements and supplier quality management.
 
@@ -382,11 +389,11 @@ Manufacturing Analytics
 
 Potential extensions for this project include:
 
-Predictive maintenance analysis
+• Predictive maintenance analysis
 
-Warranty failure prediction using machine learning
+• Warranty failure prediction using machine learning
 
-Supplier defect risk scoring
+• Supplier defect risk scoring
 
-Real-time production monitoring
+• Real-time production monitoring
 
