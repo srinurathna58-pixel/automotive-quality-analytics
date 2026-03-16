@@ -47,7 +47,7 @@ Steps involved:
 5. The views are imported into Power BI.
 6. Interactive dashboards provide insights into production performance, manufacturing quality, and warranty claims.
 
-![Project Architecture](Images/Project_Architecture.png)
+![Project Architecture](05_Images/Project_Architecture.png)
 
 
 **Dataset Description**
@@ -260,7 +260,7 @@ Interactive dashboards were developed in Power BI to analyze operational perform
 
 Production Performance Dashboard
 
-![Production_Dashboard](Images/Production_Dashboard.png)
+![Production_Dashboard](05_Images/Production_Dashboard.png)
 
 **Key metrics:**
 
@@ -286,7 +286,7 @@ Visualizations include:
 
 **Manufacturing Quality Analysis**
 
-![Quality_Dashboard](Images/Quality_Dashboard.png)
+![Quality_Dashboard](05_Images/Quality_Dashboard.png)
 
 Key metrics:
 
@@ -310,7 +310,7 @@ Visualizations include:
 
 **Warranty Analysis Dashboard**
 
-![Warranty_Dashboard](Images/Warranty_Dashboard.png)
+![Warranty_Dashboard](05_Images/Warranty_Dashboard.png)
 
 Key metrics:
 
